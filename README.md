@@ -1,5 +1,7 @@
 # threads-to-zhpost
 
+> **Experimental / 實驗性專案** — 這是一個 Claude Code skill 的概念驗證，僅供學習和研究用途。
+
 Claude Code skills：把社群串文（Threads、X 等）爬下來、翻譯成繁體中文、格式化成 Facebook 貼文、自動產生宣傳封面圖。
 
 ## 安裝
@@ -84,3 +86,27 @@ Dark 版封面圖：
 Light 版封面圖：
 
 ![Light](output/boris-cherny-claude-code-light.png)
+
+## Disclaimer / 免責聲明
+
+This project is an **experimental proof-of-concept** for Claude Code skills, intended for educational and research purposes only.
+
+- **Web scraping**: This tool scrapes publicly accessible social media content. Users are responsible for complying with the terms of service of the respective platforms (Meta/Threads, X, etc.).
+- **Copyright**: Translated and reformatted content remains the intellectual property of the original authors. Always credit the original source and obtain permission before publishing translated content.
+- **Avatars & media**: Profile images and media are fetched for local preview purposes. Do not redistribute without permission.
+- **No affiliation**: This project is not affiliated with, endorsed by, or associated with Meta, Anthropic, or any social media platform.
+- **Use at your own risk**: The authors of this project assume no liability for how it is used. You are solely responsible for ensuring your use complies with applicable laws and platform policies.
+
+---
+
+本專案為 Claude Code skill 的**實驗性概念驗證**，僅供學習與研究用途。
+
+- **爬蟲**：本工具爬取公開的社群媒體內容。使用者有責任遵守各平台（Meta/Threads、X 等）的服務條款。
+- **著作權**：翻譯和重新排版的內容，著作權仍屬於原作者。發布前請務必標註原文出處，並取得原作者同意。
+- **頭像與媒體**：頭像圖片僅供本地預覽使用，請勿未經授權轉發。
+- **無關聯性**：本專案與 Meta、Anthropic 或任何社群平台無關，也未獲得任何官方背書。
+- **風險自負**：專案作者不對任何使用方式承擔法律責任。使用者應自行確保符合相關法律與平台規範。
+
+## License
+
+[MIT](LICENSE)
