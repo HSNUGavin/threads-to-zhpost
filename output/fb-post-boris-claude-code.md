@@ -1,82 +1,75 @@
-Claude Code 創始人 Boris Cherny 分享了 15 個隱藏且被低估的功能，這些是他每天都在用的。
+Claude Code 的創造者 Boris Cherny 剛在 Threads 上分享了他自己每天都在用、但很多人不知道的 15 個功能。
 
-我整理翻譯如下，建議收藏：
+有些功能我看完才知道原來可以這樣用，整理翻譯分享給大家。
 
----
+⸺
 
-1/ Claude Code 有手機 App
-Boris 本人很多程式碼都是在 iOS App 上寫的。不用打開筆電就能改 code。
-下載 Claude App > 左側 Code 分頁即可使用。
+📱 1/ 手機就能寫 Code
+Boris 本人很多 code 是在 iOS App 上寫的 — 下載 Claude App，左邊切到 Code 分頁就能用。通勤、躺沙發都能改 code。
 
-2/ 在手機/網頁/桌面/終端之間無縫切換 session
-用 `claude --teleport` 或 `/teleport` 把雲端 session 接到本機。
-或用 `/remote-control` 從手機遠端操控正在跑的本地 session。
-Boris 個人設定是在 `/config` 裡啟用「為所有 session 啟用 Remote Control」。
+🔄 2/ Session 跨裝置無縫接續
+在手機上寫到一半，回到電腦繼續？用 claude --teleport 就能把雲端 session 接到本機。反過來也行，/remote-control 可以從手機遙控本地 session。
 
-3/ 最強大的兩個功能：/loop 和 /schedule
-用這兩個指令讓 Claude 按時間間隔自動執行，最長可以跑一整週。
+⚡ 3/ /loop 和 /schedule — 讓 Claude 自己持續跑
+這兩個指令可以讓 Claude 按照時間間隔自動執行任務，最長能跑一整週。
 
-Boris 本人跑的 loop：
-- `/loop 5m /babysit` — 自動處理 code review 和 auto-rebase PR
-- `/loop 30m /slack-feedback` — 每 30 分鐘自動把 Slack 回饋整理成 PR
-- 還有更多...
+Boris 自己跑的排程：
+→ /loop 5m /babysit — 每 5 分鐘自動處理 code review、rebase PR
+→ /loop 30m /slack-feedback — 每半小時把 Slack 回饋整理成 PR
 
-4/ 用 Hooks 在 agent 生命週期中確定性地執行邏輯
-例如：
-- 每次啟動 Claude 時動態載入 context (SessionStart)
-- 記錄模型跑的每個 bash 指令 (PreToolUse)
-- 把權限確認請求轉發到 WhatsApp 讓你審批 (PermissionRequest)
-- 每次 Claude 停下來時自動推它繼續 (Stop)
+🔧 4/ Hooks — agent 生命週期的掛鉤
+可以在 Claude 的不同階段自動觸發邏輯：
+→ 啟動時載入 context（SessionStart）
+→ 記錄每個 bash 指令（PreToolUse）
+→ 權限請求轉發到 WhatsApp 讓你審批（PermissionRequest）
+→ Claude 停下來時自動推它繼續（Stop）
 
-5/ Dispatch — 不在電腦前也能操控
-Boris 每天用 Dispatch 來追 Slack、處理信件、管理檔案。Dispatch 是 Claude Desktop 的安全遠端遙控器，可以使用你的 MCP、瀏覽器和電腦。
+📡 5/ Dispatch — 人不在電腦前也能操控
+Boris 每天用 Dispatch 追 Slack、處理信件、管理檔案。它是 Claude Desktop 的安全遠端遙控器，能用你的 MCP、瀏覽器和整台電腦。
 
-6/ 用 Chrome 擴充功能做前端開發
-最重要的使用技巧：給 Claude 一個驗證輸出的方式。一旦你這樣做，Claude 會自己反覆迭代直到結果滿意。
+🌐 6/ Chrome 擴充功能做前端
+Boris 說這是最重要的使用技巧：給 Claude 一個能驗證產出的方式。
 
-想像一下：你請一個工程師做網站但不讓他用瀏覽器，結果會好嗎？不會。但如果給他瀏覽器，他會寫 code 然後迭代到好為止。
+想像你請一個工程師做網站，但不給他瀏覽器看結果 — 不可能做好。裝了 Chrome 擴充之後，Claude 會自己寫 code → 看結果 → 反覆修到滿意為止。
 
-7/ 用 Claude Desktop App 自動啟動並測試 web server
-Desktop App 內建了自動跑 web server 並在內建瀏覽器中測試的功能。
-CLI 或 VSCode 也可以用 Chrome 擴充功能達到類似效果。
+🖥️ 7/ Desktop App 自動跑 Web Server
+Desktop App 內建自動啟動 web server 並在內建瀏覽器測試的功能，不用再手動起 server。CLI 和 VSCode 也能用 Chrome 擴充達到類似效果。
 
-8/ Fork 既有 session 的兩種方式
-1. 在 session 中執行 `/branch`
-2. 從 CLI 執行 `claude --resume <session-id> --fork-session`
+🔀 8/ Fork Session — 兩種方式
+想從現有 session 分支出去？
+→ 在 session 裡打 /branch
+→ 或 CLI 下 claude --resume <session-id> --fork-session
 
-9/ 用 /btw 處理旁支問題
-Boris 常用這個在 agent 工作時快速問問題，不打斷主流程。
+💬 9/ /btw — 插嘴不打斷
+Boris 最常用的功能之一：agent 正在忙的時候，用 /btw 快速問個問題，不會中斷主流程。
 
-10/ 用 Git Worktree 平行作業
-Claude Code 深度支援 git worktree，這是在同一個 repo 做大量平行工作的關鍵。Boris 同時跑數十個 Claude，靠的就是這個。
+🌳 10/ Git Worktree 平行作業
+Claude Code 深度支援 worktree，這是在同個 repo 做大量平行工作的關鍵。Boris 同時跑幾十個 Claude 就是靠這個。
 
-用 `claude -w` 啟動新 session 到 worktree，或在 Desktop App 勾選「worktree」。
-非 git VCS 使用者可以用 WorktreeCreate hook 自訂 worktree 建立邏輯。
+用 claude -w 就能啟動新 worktree session。
 
-11/ 用 /batch 批量扇出大型變更
-`/batch` 會先訪談你，然後讓 Claude 把工作扇出到任意數量的 worktree agent（幾十個、幾百個甚至上千個）來完成。
-適合大型程式碼遷移和其他可平行化的工作。
+📦 11/ /batch — 大規模批量變更
+/batch 會先問你要做什麼，然後自動扇出到數十、數百甚至上千個 worktree agent 去執行。大型 code migration 的神器。
 
-12/ 用 --bare 加速 SDK 啟動最多 10 倍
-預設情況下 `claude -p`（或 TypeScript/Python SDK）會搜尋本地 CLAUDE.md、設定和 MCP。
-但非互動使用時，通常你會想用 `--system-prompt`、`--mcp-config`、`--settings` 明確指定要載入什麼。
-加上 `--bare` 旗標即可。
+🚀 12/ --bare 加速啟動最高 10 倍
+用 SDK（claude -p）做非互動自動化時，加上 --bare 跳過搜尋本地 CLAUDE.md 和 MCP，啟動速度快非常多。
 
-13/ 用 --add-dir 讓 Claude 存取更多資料夾
-跨多個 repo 工作時，Boris 通常在一個 repo 啟動 Claude，然後用 `--add-dir`（或 `/add-dir`）讓 Claude 看到另一個 repo。
-或在團隊的 settings.json 加入 `additionalDirectories` 讓每次啟動都自動載入。
+📂 13/ --add-dir 跨 Repo 作業
+同時在多個 repo 工作？用 --add-dir 讓 Claude 看到其他資料夾。也可以在團隊 settings.json 設定 additionalDirectories 讓每次啟動都自動載入。
 
-14/ 用 --agent 給 Claude Code 自訂 system prompt 和工具
-自訂 agent 是常被忽略但非常強大的功能。
-在 `.claude/agents` 定義新 agent，然後執行 `claude --agent=<你的 agent 名稱>`。
+🤖 14/ --agent 自訂 Agent
+在 .claude/agents 定義你自己的 agent（含 system prompt 和工具），然後用 claude --agent=<名稱> 啟動。常被忽略但非常強大。
 
-15/ 用 /voice 啟用語音輸入
-有趣的事實：Boris 大部分 coding 是用說的，而不是用打的。
-CLI 中執行 `/voice` 然後按住空白鍵，Desktop 按語音按鈕，iOS 則啟用聽寫功能。
+🎤 15/ /voice 語音寫 Code
+Boris 本人大部分 coding 其實是用說的，不是打字。CLI 裡 /voice 再按住空白鍵，或用 Desktop App 的語音按鈕都可以。
 
----
+⸺
 
 原文來自 Threads @boris_cherny
-Boris Cherny 是 Anthropic 的工程師，也是 Claude Code 的創始人。
+Boris Cherny 是 Anthropic 工程師、Claude Code 的創造者與負責人（Head of Claude Code）。
 
-#ClaudeCode #AI #CodingTips #Anthropic #開發者工具
+你最常用的是哪幾個？有沒有其他隱藏功能想補充的？
+
+💡 這篇貼文是用 Claude Code 的 /threads-to-fb skill 產出的 — 自動爬 Threads 串文、翻譯、排版。skill 連結放留言。
+
+#ClaudeCode #AI #CodingTips #Anthropic #開發者工具 #AIcoding

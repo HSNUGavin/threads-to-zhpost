@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 1200px; font-family: 'Noto Sans TC', -apple-system, sans-serif; }
+
+  /* ===== Platform Themes ===== */
+
+  /* Threads Dark */
+  .theme-threads-dark {
+    --bg: linear-gradient(160deg, #0a0a0a 0%, #101010 50%, #0d1117 100%);
+    --glow: rgba(210,130,80,0.07);
+    --text: #fff;
+    --text-muted: #999;
+    --text-dim: #666;
+    --accent-from: #d2824f;
+    --accent-to: #e8a060;
+    --border-avatar: rgba(210,130,80,0.5);
+    --border-footer: rgba(255,255,255,0.08);
+    --icon-fill: #888;
+    --footer-text: #555;
+  }
+
+  /* Threads / Claude Light */
+  .theme-threads-light {
+    --bg: linear-gradient(160deg, #F5F0E8 0%, #EDE7DB 50%, #F0EBE1 100%);
+    --glow: rgba(199,107,58,0.08);
+    --text: #1a1a1a;
+    --text-muted: #888;
+    --text-dim: #999;
+    --accent-from: #c76b3a;
+    --accent-to: #b85a2a;
+    --border-avatar: rgba(199,107,58,0.4);
+    --border-footer: rgba(0,0,0,0.08);
+    --icon-fill: #999;
+    --footer-text: #aaa;
+  }
+
+  /* X / Twitter Dark */
+  .theme-x-dark {
+    --bg: linear-gradient(160deg, #000 0%, #0a0a0a 50%, #0d1117 100%);
+    --glow: rgba(29,155,240,0.07);
+    --text: #fff;
+    --text-muted: #999;
+    --text-dim: #666;
+    --accent-from: #1d9bf0;
+    --accent-to: #5bb8f5;
+    --border-avatar: rgba(29,155,240,0.5);
+    --border-footer: rgba(255,255,255,0.08);
+    --icon-fill: #888;
+    --footer-text: #555;
+  }
+
+  /* X / Twitter Light */
+  .theme-x-light {
+    --bg: linear-gradient(160deg, #fff 0%, #f7f9fa 50%, #eff3f4 100%);
+    --glow: rgba(29,155,240,0.06);
+    --text: #0f1419;
+    --text-muted: #536471;
+    --text-dim: #8899a6;
+    --accent-from: #1d9bf0;
+    --accent-to: #1a8cd8;
+    --border-avatar: rgba(29,155,240,0.4);
+    --border-footer: rgba(0,0,0,0.06);
+    --icon-fill: #536471;
+    --footer-text: #8899a6;
+  }
+
+  /* LinkedIn */
+  .theme-linkedin {
+    --bg: linear-gradient(160deg, #f3f2ef 0%, #eae8e4 50%, #f0eee9 100%);
+    --glow: rgba(0,119,181,0.06);
+    --text: #191919;
+    --text-muted: #666;
+    --text-dim: #999;
+    --accent-from: #0077b5;
+    --accent-to: #0a66c2;
+    --border-avatar: rgba(0,119,181,0.4);
+    --border-footer: rgba(0,0,0,0.08);
+    --icon-fill: #666;
+    --footer-text: #999;
+  }
+
+  /* Reddit */
+  .theme-reddit {
+    --bg: linear-gradient(160deg, #0e1113 0%, #1a1a1b 50%, #161617 100%);
+    --glow: rgba(255,69,0,0.07);
+    --text: #d7dadc;
+    --text-muted: #818384;
+    --text-dim: #6a6c6e;
+    --accent-from: #ff4500;
+    --accent-to: #ff6834;
+    --border-avatar: rgba(255,69,0,0.5);
+    --border-footer: rgba(255,255,255,0.06);
+    --icon-fill: #818384;
+    --footer-text: #4f5152;
+  }
+
+  /* ===== Layout ===== */
+
+  .card {
+    width: 1200px; height: 1200px;
+    background: var(--bg);
+    padding: 72px 80px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    color: var(--text);
+  }
+  .card::before {
+    content: ''; position: absolute; top: 200px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .top-row { display: flex; align-items: center; gap: 12px; margin-bottom: 60px; }
+  .platform-icon svg { width: 40px; height: 40px; fill: var(--icon-fill); display: block; }
+  .platform-label { font-size: 26px; color: var(--text-dim); font-weight: 500; }
+
+  .author { display: flex; align-items: center; gap: 28px; margin-bottom: 72px; }
+  .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    border: 3px solid var(--border-avatar);
+    object-fit: cover; flex-shrink: 0;
+  }
+  .author-text { display: flex; flex-direction: column; gap: 4px; }
+  .author-name { font-size: 42px; font-weight: 700; }
+  .author-role { font-size: 26px; color: var(--text-muted); }
+
+  .headline { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .headline h1 { font-weight: 900; line-height: 1.15; letter-spacing: -2px; }
+  .headline .small { font-size: 60px; color: var(--text-muted); font-weight: 700; letter-spacing: -0.5px; display: block; margin-bottom: 8px; }
+  .headline .big { font-size: 128px; display: block; }
+  .headline .accent {
+    background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .sub { font-size: 40px; color: var(--text-muted); margin-top: 32px; line-height: 1.5; }
+
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 48px; padding-top: 28px;
+    border-top: 1px solid var(--border-footer);
+  }
+  .footer-text { font-size: 24px; color: var(--footer-text); }
+</style>
+</head>
+<body>
+<div class="card {{THEME_CLASS}}">
+
+  <div class="top-row">
+    <div class="platform-icon">{{PLATFORM_ICON}}</div>
+    <span class="platform-label">{{PLATFORM_LABEL}}</span>
+  </div>
+
+  <div class="author">
+    <img class="avatar" src="{{AVATAR_SRC}}" alt="{{AUTHOR_NAME}}">
+    <div class="author-text">
+      <div class="author-name">{{AUTHOR_NAME}}</div>
+      <div class="author-role">{{AUTHOR_ROLE}}</div>
+    </div>
+  </div>
+
+  <div class="headline">
+    <h1>
+      <span class="small">{{HEADLINE_SMALL}}</span>
+      <span class="big accent">{{HEADLINE_BIG_1}}</span>
+      <span class="big accent">{{HEADLINE_BIG_2}}</span>
+    </h1>
+    <div class="sub">{{SUBTITLE}}</div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-text">{{FOOTER_LEFT}}</span>
+    <span class="footer-text">{{FOOTER_RIGHT}}</span>
+  </div>
+
+</div>
+</body>
+</html>
