@@ -66,7 +66,7 @@ node generate-image.js --config '{
   "subtitle": "<副標題>",
   "footerLeft": "繁體中文翻譯整理",
   "footerRight": "<日期>",
-  "output": "output/fb-cover-<作者名>-<主題>.png"
+  "output": "output/<作者帳號>-<主題>-dark.png"
 }'
 ```
 
@@ -74,8 +74,10 @@ node generate-image.js --config '{
 
 ### 6. 輸出
 
-- 文案：`output/fb-post-{作者名}-{主題}.md`
-- 封面圖 dark：`output/fb-cover-{作者名}-{主題}-dark.png`
-- 封面圖 light：`output/fb-cover-{作者名}-{主題}-light.png`
+檔名格式統一為 `{作者帳號}-{主題}-{variant}.{ext}`：
+
+- 文案：`output/{作者帳號}-{主題}.md`
+- 封面圖 dark：`output/{作者帳號}-{主題}-dark.png`
+- 封面圖 light：`output/{作者帳號}-{主題}-light.png`
 
 顯示文案預覽和圖片供使用者確認。

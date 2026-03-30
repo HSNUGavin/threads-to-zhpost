@@ -1,7 +1,7 @@
 {
-  "name": "social-auto-post",
+  "name": "threads-to-zhpost",
   "version": "1.0.0",
-  "description": "",
+  "description": "Claude Code skills: scrape Threads posts, translate to Chinese, generate FB posts with cover images",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

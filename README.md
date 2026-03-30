@@ -1,12 +1,12 @@
-# social-auto-post
+# threads-to-zhpost
 
 Claude Code skills：把社群串文（Threads、X 等）爬下來、翻譯成繁體中文、格式化成 Facebook 貼文、自動產生宣傳封面圖。
 
 ## 安裝
 
 ```bash
-git clone https://github.com/HSNUGavin/social-auto-post.git
-cd social-auto-post
+git clone https://github.com/HSNUGavin/threads-to-zhpost.git
+cd threads-to-zhpost
 npm install
 ```
 
@@ -57,7 +57,7 @@ node generate-image.js --config '{
   "subtitle": "他每天都在用，但很多人不知道的功能",
   "footerLeft": "繁體中文翻譯整理",
   "footerRight": "2026.03.30",
-  "output": "output/cover.png"
+  "output": "output/boris-cherny-claude-code-dark.png"
 }'
 ```
 
@@ -79,8 +79,8 @@ assets/                  # 頭像等素材
 
 Dark 版封面圖：
 
-![V2 Dark](output/fb-cover-v2-dark-mixed.png)
+![Dark](output/boris-cherny-claude-code-dark.png)
 
 Light 版封面圖：
 
-![V3 Light](output/fb-cover-v3-light-claude.png)
+![Light](output/boris-cherny-claude-code-light.png)
