@@ -1,5 +1,7 @@
 # threads-to-zhpost
 
+**[English](README.en.md)** | 繁體中文
+
 > **Experimental / 實驗性專案** — 這是一個 Claude Code skill 的概念驗證，僅供學習和研究用途。
 
 Claude Code skills：把社群串文（Threads、X 等）爬下來、翻譯成繁體中文、格式化成 Facebook 貼文、自動產生宣傳封面圖。
