@@ -6,6 +6,10 @@ English | **[繁體中文](README.md)**
 
 Claude Code skills that scrape social media threads (Threads, X, etc.), translate them into Traditional Chinese, format them as Facebook posts, and auto-generate promotional cover images.
 
+This repo also includes the full build process — every prompt used and what the AI did at each step:
+- [Build Process (Step by Step)](prompts/step-by-step.en.md)
+- [One-Shot Prompt to Rebuild](prompts/one-shot.en.md)
+
 ## Installation
 
 ```bash

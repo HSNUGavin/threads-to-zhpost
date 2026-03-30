@@ -6,6 +6,10 @@
 
 Claude Code skills：把社群串文（Threads、X 等）爬下來、翻譯成繁體中文、格式化成 Facebook 貼文、自動產生宣傳封面圖。
 
+這個 repo 也包含了完整的製作過程，記錄了每一步的 prompt 和 AI 的回應：
+- [製作過程（Step by Step）](prompts/step-by-step.md)
+- [一個 Prompt 重建整個專案](prompts/one-shot.md)
+
 ## 安裝
 
 ```bash
